@@ -91,10 +91,10 @@ function hashXYZ(ulaz) {
   for (let i = 0; i < 16; i++) {
     //282943
     radnaVrijednost *= radnaVrijednost;
-    radnaVrijednost %= BigInt(282943);
+    radnaVrijednost /= BigInt(282943);
   }
-  radnaVrijednost *= radnaVrijednost;
-  const hash = `${(radnaVrijednost %= BigInt(282943)).toString()}0000000000`;
+  radnaVrijednost *= ulaz;
+  const hash = `${(radnaVrijednost % BigInt(282943)).toString()}0000000000`;
   return hash.slice(0, 10);
 }
 console.log(hashXYZ("predavanje 1 je pocelo"));
