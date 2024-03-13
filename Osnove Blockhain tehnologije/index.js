@@ -1,38 +1,101 @@
 const crypto = require("crypto");
 
-// kreiranje Block klase
+// Kreiranje klase Block
 class Block {
   constructor(index, timestamp, data, prevHash) {
-    this.index = index; //sastavni deo bloka
+    this.index = index;
     this.timestamp = timestamp;
     this.data = data;
     this.prevHash = prevHash;
-    this.calculateHash();
+    this.hash = this.calculateHash();
   }
 
   calculateHash() {
-    this.hash = crypto
+    return crypto
       .createHash("sha256")
       .update(this.index.toString())
       .update(this.timestamp.toString())
-      .update(this.data)
+      .update(JSON.stringify(this.data)) // Koristimo JSON.stringify za konverziju objekta u string
       .update(this.prevHash)
       .digest("hex");
   }
 }
-const dammyBlock = new Block(
-  0,
-  Date.now(),
-  "neki podaci",
-  crypto.createHash("sha256").update("42").digest("hex")
+
+// Kreiranje klase Blockchain
+class Blockchain {
+  constructor() {
+    this.chain = [this.createGenesisBlock()];
+  }
+
+  createGenesisBlock() {
+    return new Block(0, Date.now(), "Genesis block", "0");
+  }
+
+  addBlock(newBlock) {
+    // if (newBlock.prevHash !== this.getLatestBlock().hash) {
+    //   throw new Error("Invalid previous hash.");
+    // }
+    // if (newBlock.hash !== newBlock.calculateHash()) {
+    //   throw new Error("Invalid hash.");
+    // }
+
+    // if (newBlock.timestamp < this.getLatestBlock().timestamp) {
+    //   throw new Error("Invalid timestamp.");
+    // }
+
+    this.chain.push(newBlock);
+  }
+
+  getLatestBlock() {
+    return this.chain[this.chain.length - 1];
+  }
+
+  isValid() {
+    let prevTimestamp;
+    let prevHash;
+
+    for (const block of this.chain) {
+      if (prevTimestamp === undefined && prevHash == undefined) {
+        prevTimestamp = block.timestamp;
+        prevHash = block.hash;
+
+        continue;
+      } else {
+        if (prevHash !== block.prevHash) return false;
+        if (prevTimestamp > block.timestamp) return false;
+
+        prevTimestamp = block.timestamp;
+        prevHash = block.hash;
+      }
+    }
+    return true;
+  }
+}
+
+// Kreiranje instance Blockchain i dodavanje novog bloka
+const blockchain = new Blockchain();
+const newBlock = new Block(
+  blockchain.chain.length,
+  Date.now(), // Koristimo trenutni vremenski pečat
+  "random data",
+  blockchain.getLatestBlock().hash
 );
-console.log(
-  dammyBlock.index,
-  dammyBlock.timestamp,
-  dammyBlock.data,
-  dammyBlock.prevHash,
-  dammyBlock.hash
-);
+blockchain.addBlock(newBlock);
+console.log(blockchain);
+
+// const dammyBlock = new Block(
+//   0,
+//   Date.now(),
+//   "neki podaci",
+//   crypto.createHash("sha256").update("42").digest("hex")
+// );
+// console.log(
+//   dammyBlock.index,
+//   dammyBlock.timestamp,
+//   dammyBlock.data,
+//   dammyBlock.prevHash,
+//   dammyBlock.hash
+// );
 
 // ovaj kod  omogućava da kreiraš blokove unutar blockchaina.
 //  Svaki blok ima četiri osnovna svojstva:
@@ -55,7 +118,7 @@ console.log(
 //  hash vrednost za taj blok. Ova hash vrednost se formira od svih svojstava bloka
 //   (indeks, vremenska oznaka, podaci i hash prethodnog bloka).
 
-// U tvom primeru, dammyBlock predstavlja prvi blok u blockchainu. Možeš koristiti ovaj 
+// U tvom primeru, dammyBlock predstavlja prvi blok u blockchainu. Možeš koristiti ovaj
 // kod da kreiraš više blokova tako što ćeš ponovo kreirati nove instance klase Block za
-//  svaki novi blok, pri čemu ćeš koristiti hash vrednost prethodnog bloka kao prevHash 
+//  svaki novi blok, pri čemu ćeš koristiti hash vrednost prethodnog bloka kao prevHash
 // argument za novi blok. Na taj način se stvara povezan lanac blokova koji čini blockchain.
