@@ -76,3 +76,13 @@ console.log(typeof class Foo {}); // "function"   u JavaScriptu, klase se zaprav
 console.log(typeof {}); // "object"
 console.log(typeof [1, 2, 3]); // "object"
 console.log(typeof Infinity); //number -se smatra numeričkom vrednošću
+
+////////////////////////////////////////////////////////////////////////////////////////
+// Function //
+
+// Funkcije su kao male mašine koje primaju neke ulazne stvari (parametre), rade neki
+//  posao, i vraćaju nešto nazad (povratnu vrednost). Zamislite ih kao male blokove koda
+//  koji možete koristiti ponovo i ponovo u svom programu.
+function myFunction() {} //deklaracija funkcije
+const greet = function () {}; // izraz funkcije
+const greett = () => {}; //arow function
