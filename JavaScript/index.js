@@ -86,3 +86,25 @@ console.log(typeof Infinity); //number -se smatra numeričkom vrednošću
 function myFunction() {} //deklaracija funkcije
 const greet = function () {}; // izraz funkcije
 const greett = () => {}; //arow function
+
+////////////////////////////////////////////////////////////////////////////////////////
+// Objecti //
+
+// Objekti omogućavaju grupisanje više vrednosti različitih tipova podataka u jednoj strukturi podataka
+
+let automobil = {
+  marka: "Toyota",
+  model: "Corolla",
+  godinaProizvodnje: 2018,
+  zvukHorn: function () {
+    console.log("Beep Beep!");
+  },
+};
+
+automobil.zvukHorn(); // Poziva metodu zvukHorn() na objektu automobil, ispisuje "Beep Beep!"
+
+// notacija sa tackom
+// automobil.zvukHorn
+
+// notacija sa zagradom
+// automobil["zvukHorn"]
