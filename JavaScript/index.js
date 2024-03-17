@@ -174,3 +174,22 @@ let student2 = new Student("Marko", "Jović", "654321");
 // Poziv metoda objekta
 student1.predstaviSe(); // Ispisuje: Zdravo, ja sam ANA Petrović. Moje ime je ANA Petrović i moj broj indeksa je 123456.
 student2.predstaviSe(); // Ispisuje: Zdravo, ja sam MARKO Jović. Moje ime je MARKO Jović i moj broj indeksa je 654321.
+
+// Nizovi su strukture podataka koje omogućavaju čuvanje više elemenata u jednoj
+// promenljivoj. Ovi elementi mogu biti bilo koji tip podataka, kao što su brojevi,
+//  stringovi, objekti ili čak drugi nizovi. Nizovi omogućavaju efikasan način organizacije
+// i manipulacije podacima.
+
+// Definicija niza sa nekoliko brojeva
+let brojevi = [1, 2, 3, 4, 5];
+
+// Definicija niza sa nekoliko stringova
+let gradovi = ["Beograd", "Novi Sad", "Niš", "Kragujevac"];
+
+// Definicija niza sa kombinacijom različitih tipova podataka
+let razno = [1, "hello", true, { ime: "Ana", godine: 30 }];
+
+// Prikaz elemenata niza
+console.log(brojevi); // Ispisuje: [1, 2, 3, 4, 5]
+console.log(gradovi); // Ispisuje: ["Beograd", "Novi Sad", "Niš", "Kragujevac"]
+console.log(razno); // Ispisuje: [1, "hello", true, {ime: "Ana", godine: 30}]
