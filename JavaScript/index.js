@@ -108,3 +108,69 @@ automobil.zvukHorn(); // Poziva metodu zvukHorn() na objektu automobil, ispisuje
 
 // notacija sa zagradom
 // automobil["zvukHorn"]
+
+// //////////////////////////////////////////////////////////////////////////////////////
+// Classe //
+
+// Definisanje klase
+class Osoba {
+  constructor(ime, prezime) {
+    this.ime = ime;
+    this.prezime = prezime;
+  }
+
+  get ime() {
+    return this._ime.toUpperCase();
+  }
+
+  set ime(novoIme) {
+    if (typeof novoIme === "string" && novoIme.length > 0) {
+      this._ime = novoIme;
+    } else {
+      console.error("Ime mora biti neprazan string.");
+    }
+  }
+  pozdrav() {
+    console.log(`Zdravo, ja sam ${this.ime} ${this.prezime}.`);
+  }
+}
+
+// Kreiranje instance objekta
+let osoba1 = new Osoba("Ana", "Petrović");
+let osoba2 = new Osoba("Marko", "Jović");
+
+// Poziv metode objekta
+osoba1.pozdrav(); // Ispisuje: Zdravo, ja sam Ana Petrović.
+osoba2.pozdrav(); // Ispisuje: Zdravo, ja sam Marko Jović.
+
+// klase nam omogućavaju da organizujemo naš kod tako da definišemo šablone za kreiranje
+// objekata koji dele zajedničke karakteristike i ponašanje. Ovo olakšava ponovnu upotrebu
+// koda, povećava fleksibilnost i olakšava održavanje programa.
+
+// get metoda omogućava nam da primenimo transformaciju nad vrednošću svojstva pre nego što je vratimo.
+// Set metode: Kada koristimo set metodu, ona nam omogućava da postavljamo (ili menjamo) vrednosti
+//  svojstava objekta. Ova metoda se poziva kada pokušamo da postavimo vrednost svojstva.
+
+// Definicija podklase Student koja nasleđuje klasu Osoba
+class Student extends Osoba {
+  constructor(ime, prezime, indeks) {
+    super(ime, prezime); // Poziv konstruktora roditeljske klase
+    this.indeks = indeks;
+  }
+
+  // Dodatna metoda podklase
+  predstaviSe() {
+    super.pozdrav(); // Poziv metode roditeljske klase
+    console.log(
+      `Moje ime je ${this.ime} ${this.prezime} i moj broj indeksa je ${this.indeks}.`
+    );
+  }
+}
+
+// Kreiranje instance objekta klase Student
+let student1 = new Student("Ana", "Petrović", "123456");
+let student2 = new Student("Marko", "Jović", "654321");
+
+// Poziv metoda objekta
+student1.predstaviSe(); // Ispisuje: Zdravo, ja sam ANA Petrović. Moje ime je ANA Petrović i moj broj indeksa je 123456.
+student2.predstaviSe(); // Ispisuje: Zdravo, ja sam MARKO Jović. Moje ime je MARKO Jović i moj broj indeksa je 654321.
