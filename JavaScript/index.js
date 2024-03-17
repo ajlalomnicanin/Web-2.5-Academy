@@ -19,7 +19,7 @@
 var x = 10;
 
 // Korišćenje ključne reči let (lokalno ograničena promenljiva)
-let y = "Hello";
+let q = "Hello";
 
 // Korišćenje ključne reči const (konstanta, ne može se ponovo dodeliti)
 const PI = 3.14;
@@ -193,3 +193,45 @@ let razno = [1, "hello", true, { ime: "Ana", godine: 30 }];
 console.log(brojevi); // Ispisuje: [1, 2, 3, 4, 5]
 console.log(gradovi); // Ispisuje: ["Beograd", "Novi Sad", "Niš", "Kragujevac"]
 console.log(razno); // Ispisuje: [1, "hello", true, {ime: "Ana", godine: 30}]
+
+// Operatori u JavaScript-u su simboli koji se koriste za izvršavanje različitih
+//  operacija nad vrednostima.
+
+// Aritmetički operatori: Koriste se za izvođenje aritmetičkih operacija nad brojevima.
+let x = 5;
+let y = 3;
+console.log(x + y); // Sabiranje: Ispisuje 8
+console.log(x - y); // Oduzimanje: Ispisuje 2
+console.log(x * y); // Množenje: Ispisuje 15
+console.log(x / y); // Deljenje: Ispisuje 1.6666666666666667
+console.log(x % y); // Ostatak pri deljenju: Ispisuje 2
+
+// Atributni operatori: Koriste se za pristupanje svojstvima objekata i elementima nizova.
+let objekat = { ime: "Ana", godine: 30 };
+console.log(objekat.ime); // Pristupanje svojstvu objekta: Ispisuje Ana
+
+let niz = ["jabuka", "banana", "kruška"];
+console.log(niz[0]); // Pristupanje elementu niza: Ispisuje jabuka
+
+// Dodelni operatori: Koriste se za dodelu vrednosti promenljivama.
+
+let x = 5;
+x += 3; // Dodela sa sabiranjem: x postaje 8
+// Uslovni operatori: Koriste se za izvršavanje različitih operacija na osnovu ispunjenja uslova.
+
+let rezultat = x > y ? "x je veće od y" : "x nije veće od y";
+
+// Logički operatori: Koriste se za izvršavanje logičkih operacija nad vrednostima.
+
+let a = true;
+let b = false;
+console.log(a && b); // Logičko AND: Ispisuje false
+console.log(a || b); // Logičko OR: Ispisuje true
+console.log(!a); // Logičko NOT: Ispisuje false
+
+// Komparativni operatori: Koriste se za poređenje vrednosti.
+
+console.log(x === y); // Jednakost: Ispisuje false
+console.log(x !== y); // Različitost: Ispisuje true
+console.log(x > y); // Veće od: Ispisuje true
+console.log(x < y); // Manje od: Ispisuje false
