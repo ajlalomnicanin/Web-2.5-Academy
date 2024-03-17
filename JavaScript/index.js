@@ -65,3 +65,14 @@ const PI = 3.14;
 // typeof je operator u JavaScriptu koji se koristi za dobijanje tipa podataka (eng. data type) operand-a. Ovaj
 // operator vraća string koji predstavlja tip podataka operand-a.
 // typeof null vraća "object"
+
+console.log(typeof typeof 123);
+// typeof 123 vraća string "number".
+// typeof "number" vraća string "string".
+
+console.log(typeof null); // "object"
+console.log(typeof NaN); // "number"
+console.log(typeof class Foo {}); // "function"   u JavaScriptu, klase se zapravo prevode u funkcije kada se evaluiraju.
+console.log(typeof {}); // "object"
+console.log(typeof [1, 2, 3]); // "object"
+console.log(typeof Infinity); //number -se smatra numeričkom vrednošću
