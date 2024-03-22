@@ -16,7 +16,7 @@
 // const, a mogu sadržati različite tipove podataka kao što su brojevi, stringovi, nizovi, objekti, i drugo.
 
 // Korišćenje ključne reči var (globalno dostupna promenljiva)
-var x = 10;
+var m = 10;
 
 // Korišćenje ključne reči let (lokalno ograničena promenljiva)
 let q = "Hello";
@@ -215,7 +215,6 @@ console.log(niz[0]); // Pristupanje elementu niza: Ispisuje jabuka
 
 // Dodelni operatori: Koriste se za dodelu vrednosti promenljivama.
 
-let x = 5;
 x += 3; // Dodela sa sabiranjem: x postaje 8
 // Uslovni operatori: Koriste se za izvršavanje različitih operacija na osnovu ispunjenja uslova.
 
@@ -235,3 +234,45 @@ console.log(x === y); // Jednakost: Ispisuje false
 console.log(x !== y); // Različitost: Ispisuje true
 console.log(x > y); // Veće od: Ispisuje true
 console.log(x < y); // Manje od: Ispisuje false
+
+// /////////////////////////////////////////////////////////////////////////
+
+// U JavaScript-u, vrednosti koje se smatraju "falsnim" (falsey) u kontekstu logičkih
+//  operacija su:
+
+// false: Očigledno, sama vrednost false se smatra falsnom.
+// 0: Broj 0 se smatra falsnim.
+// "" (prazan string): Prvi prazni string se smatra falsnim.
+// null: null se smatra falsnim.
+// undefined: undefined se smatra falsnim.
+// NaN: NaN (Not a Number) se smatra falsnim.
+
+////////////////////////////////////////////////////////////////////////////
+// Konditional //
+
+// Kondicionali u programiranju su konstrukti koji omogućavaju izvršavanje određenog
+// dela koda samo ako je određeni uslov ispunjen.
+
+let broj = 10;
+
+if (broj > 0) {
+  console.log("Broj je pozitivan.");
+} else if (broj === 0) {
+  console.log("Broj je nula.");
+} else {
+  console.log("Broj je negativan.");
+}
+
+// switch imamo vise granannja za razlicite vrednosti varijable bolje je koristiti switch
+
+switch (izraz) {
+  case vrednost1:
+    // Blok koda koji se izvršava ako je izraz jednako vrednosti1
+    break;
+  case vrednost2:
+    // Blok koda koji se izvršava ako je izraz jednako vrednosti2
+    break;
+  // Dodatni case blokovi za ostale vrednosti
+  default:
+  // Blok koda koji se izvršava ako nijedan case nije ispunjen
+}
