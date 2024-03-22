@@ -265,14 +265,42 @@ if (broj > 0) {
 
 // switch imamo vise granannja za razlicite vrednosti varijable bolje je koristiti switch
 
-switch (izraz) {
-  case vrednost1:
-    // Blok koda koji se izvršava ako je izraz jednako vrednosti1
-    break;
-  case vrednost2:
-    // Blok koda koji se izvršava ako je izraz jednako vrednosti2
-    break;
-  // Dodatni case blokovi za ostale vrednosti
-  default:
-  // Blok koda koji se izvršava ako nijedan case nije ispunjen
+// switch (izraz) {
+//   case vrednost1:
+//     // Blok koda koji se izvršava ako je izraz jednako vrednosti1
+//     break;
+//   case vrednost2:
+//     // Blok koda koji se izvršava ako je izraz jednako vrednosti2
+//     break;
+//   // Dodatni case blokovi za ostale vrednosti
+//   default:
+//   // Blok koda koji se izvršava ako nijedan case nije ispunjen
+// }
+
+// while petlja se koristi kada ne znamo tačan broj iteracija unapred,
+// while (uslov) {
+
+//   // akcija
+// }
+// // do...while ce se jednom izvrsiti bar
+// do {
+//   // akcija
+// } while (uslov);
+
+//for petlja prolazi kroz niz elemenata i izvršava određene radnje za svaki element u tom nizu.
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+const niz1 = [1, 2, 3, 4, 5];
+
+// for...in petlja - prolazi kroz indekse niza
+console.log("Prolazak kroz indekse niza:");
+for (const indeks in niz1) {
+  console.log(indeks); // Ispisuje indekse: 0, 1, 2, 3, 4
+}
+
+// for...of petlja - prolazi kroz vrednosti niza
+console.log("Prolazak kroz vrednosti niza:");
+for (const element of niz1) {
+  console.log(element); // Ispisuje vrednosti: 1, 2, 3, 4, 5
 }
